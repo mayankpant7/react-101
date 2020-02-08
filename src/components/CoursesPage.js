@@ -1,6 +1,6 @@
 import React from "react";
 import { getCourses } from "../api/courseApi";
-
+import { Link } from "react-router-dom";
 class CoursesPage extends React.Component {
   state = {
     courses: []
@@ -25,12 +25,18 @@ class CoursesPage extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.courses.map(courses => {
+            {this.state.courses.map(course => {
               return (
-                <tr key={courses.id}>
-                  <td> {courses.title} </td>
-                  <td> {courses.authorId} </td>
-                  <td> {courses.category} </td>
+                <tr key={course.id}>
+                  <td>
+                    {" "}
+                    <Link to={"/course/" + course.slug}>
+                      {" "}
+                      {course.title}{" "}
+                    </Link>{" "}
+                  </td>
+                  <td> {course.authorId} </td>
+                  <td> {course.category} </td>
                 </tr>
               );
             })}
