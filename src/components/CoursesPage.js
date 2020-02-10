@@ -1,6 +1,7 @@
 import React from "react";
 import { getCourses } from "../api/courseApi";
 import { Link } from "react-router-dom";
+
 class CoursesPage extends React.Component {
   state = {
     courses: []
@@ -15,7 +16,12 @@ class CoursesPage extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="jumbotron">Courses</h1>
+        <div className="jumbotron">
+          <h1>Courses</h1>
+          <Link to="/course">
+            <button className="btn btn-primary">Add Course</button>
+          </Link>
+        </div>
         <table className="table">
           <thead>
             <tr>
